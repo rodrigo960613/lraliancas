@@ -43,7 +43,7 @@ export default function Location() {
           <p className="refline"><b>Referência:</b> na descida de Tânia Calçados, em frente à Executiva Prime.</p>
           <div className="talk on-dark">
             <h3>Fale com a gente</h3>
-            <Row href={whatsLink()} icon={<WhatsIcon />} label="WhatsApp" value="(81) 98102-8722" />
+            <Row href={whatsLink()} icon={<WhatsIcon />} label="WhatsApp" value="(81) 98202-8722" />
             <Row href={INSTAGRAM} icon={<InstaIcon />} label="Instagram" value="@aliancamoedaantigaeprata" />
             <a className="btn btn-gold" href={whatsLink()} target="_blank" rel="noopener noreferrer"><WhatsIcon />Falar no WhatsApp</a>
           </div>

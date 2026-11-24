@@ -14,7 +14,7 @@ export default function MoreSection() {
             <a className="btn btn-gold" href={whatsLink()} target="_blank" rel="noopener noreferrer"><WhatsIcon />Falar no WhatsApp</a>
             <a className="btn btn-ghost" href={INSTAGRAM} target="_blank" rel="noopener noreferrer"><InstaIcon />Ver no Instagram</a>
           </div>
-          <p className="hint">(81) 98102-8722 · @aliancamoedaantigaeprata</p>
+          <p className="hint">(81) 98202-8722 · @aliancamoedaantigaeprata</p>
         </div>
       </div>
     </section>
