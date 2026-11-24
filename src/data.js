@@ -1,7 +1,6 @@
 export const WHATS = '5581981028722';
 export const INSTAGRAM = 'https://www.instagram.com/aliancamoedaantigaeprata/';
-export const MAPS =
-  'https://www.google.com/maps/search/?api=1&query=Pra%C3%A7a+da+Bandeira%2C+Centro%2C+Vit%C3%B3ria+de+Santo+Ant%C3%A3o+PE+55602-200';
+export const MAPS = 'https://maps.app.goo.gl/88k2hWmH5gEvLwnh8';
 
 export const NAV = [
   { href: '#topo', label: 'Início' },
