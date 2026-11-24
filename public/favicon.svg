@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-14 -14 790 775">
+  <defs>
+    <linearGradient id="gold" gradientUnits="userSpaceOnUse" x1="40" y1="30" x2="720" y2="730">
+      <stop offset="0" stop-color="#b98f33" />
+      <stop offset=".25" stop-color="#d6b25c" />
+      <stop offset=".48" stop-color="#c49a3f" />
+      <stop offset=".72" stop-color="#e6cd86" />
+      <stop offset=".88" stop-color="#f2e1a6" />
+      <stop offset="1" stop-color="#d1ab52" />
+    </linearGradient>
+    <clipPath id="outer"><circle cx="377.4" cy="368.9" r="373.8" /></clipPath>
+    <clipPath id="right-arc"><path d="M-825.2 -961.9 1825.2 2033.9 3323.2 708.7 672.7 -2287.2Z" /></clipPath>
+    <clipPath id="left-arc">
+      <path clip-rule="evenodd" d="M-200 -200h1400v1400H-200z M415.2 450.8 1091.1 1214.7 2589 -110.5 1913.2 -874.5Z" />
+    </clipPath>
+    <clipPath id="top-cut-right"><path d="M235 -40h665v408.9h-0v531h-1000V368.9h335Z" /></clipPath>
+    <clipPath id="top-cut-left"><path d="M-100 -40h305v408.9h695v531H-100Z" /></clipPath>
+  </defs>
+  <g clip-path="url(#outer)" fill="url(#gold)">
+    <g clip-path="url(#left-arc)">
+      <g clip-path="url(#top-cut-left)">
+        <path fill-rule="evenodd" d="M3.6 368.9a373.8 373.8 0 1 0 747.6 0 373.8 373.8 0 1 0-747.6 0Zm55.8 0a318 318 0 1 1 636 0 318 318 0 1 1-636 0Z" />
+      </g>
+    </g>
+    <g clip-path="url(#right-arc)">
+      <g clip-path="url(#top-cut-right)">
+        <path fill-rule="evenodd" d="M3.6 368.9a373.8 373.8 0 1 0 747.6 0 373.8 373.8 0 1 0-747.6 0Zm55.8 0a318 318 0 1 1 636 0 318 318 0 1 1-636 0Z" />
+      </g>
+    </g>
+    <path d="M149 0h56v525h275v47H149Z" />
+    <path fill-rule="nonzero" d="M235 141h234a141 141 0 0 1 0 282H235Zm53 53v181h181a89 89 0 0 0 0-182H288Zm-53-53h53v358h-53Z" />
+    <path d="m397.5 420.2 235.3 265.9 39.2-34.7-235.2-265.9Z" />
+  </g>
+</svg>
