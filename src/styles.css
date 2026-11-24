@@ -154,6 +154,9 @@ h2{font-weight:400;font-size:clamp(1.6rem,4.4vw,2.4rem);line-height:1.15;margin:
 /* CONTATO */
 .contact{background:var(--bg-2)}
 .cgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:24px;align-items:stretch}
+.cgrid>.map{grid-column:1;grid-row:1}
+.cgrid>.talk{grid-column:2;grid-row:1}
+.cgrid>.refline{grid-column:1 / -1;grid-row:2}
 .map{position:relative;min-height:270px;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#ebe6df;min-width:0}
 .map svg.bg{position:absolute;inset:0;width:100%;height:100%}
 .pin{position:absolute;left:50%;top:48%;transform:translate(-50%,-100%);width:44px;height:58px;filter:drop-shadow(0 6px 6px rgba(60,40,10,.35))}
@@ -197,6 +200,7 @@ footer b{font-weight:500;color:var(--gold-ink)}
   .video-copy{text-align:center}
   .video-sec .lead{margin-inline:auto}
   .cgrid{grid-template-columns:minmax(0,1fr)}
+  .cgrid>.map,.cgrid>.refline,.cgrid>.talk{grid-column:1;grid-row:auto}
   .map{min-height:250px}
   .talk{padding:1.2rem}
   .crow{gap:.7rem;padding:.8rem}
