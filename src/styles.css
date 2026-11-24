@@ -159,12 +159,12 @@ h2{font-weight:400;font-size:clamp(1.6rem,4.4vw,2.4rem);line-height:1.15;margin:
 .special-heading,.material-heading{text-align:center;margin:2.4rem 0 1rem}
 .special-heading .eyebrow,.material-heading .eyebrow{margin-bottom:.35rem}
 .special-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.special-card{min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:var(--card);box-shadow:0 12px 30px -24px rgba(60,40,10,.5)}
+.special-card{display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:var(--card);box-shadow:0 12px 30px -24px rgba(60,40,10,.5)}
 .special-card>img{display:block;width:100%;aspect-ratio:1.05/1;object-fit:cover}
-.special-card-copy{display:flex;flex-direction:column;align-items:flex-start;gap:.55rem;padding:.9rem}
+.special-card-copy{display:flex;flex:1;flex-direction:column;align-items:flex-start;gap:.55rem;padding:.9rem}
 .special-card h4,.engraving-option h4{margin:0;font-family:var(--font-serif);font-size:1.1rem;font-weight:600;line-height:1.2}
 .special-card-copy>p{margin:0;min-height:3em;font-size:.86rem;line-height:1.45;color:var(--muted)}
-.special-card-price{display:flex;align-items:baseline;justify-content:space-between;width:100%;gap:.4rem}
+.special-card-price{display:flex;align-items:baseline;justify-content:space-between;width:100%;gap:.4rem;margin-top:auto}
 .special-card-price span{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
 .special-card-price strong{color:var(--gold-ink);font-family:var(--font-serif);font-size:1.25rem;white-space:nowrap}
 .special-card .wabtn{width:100%;padding-inline:.5rem;font-size:.62rem}
