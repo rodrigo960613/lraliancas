@@ -3,7 +3,7 @@ import { WhatsIcon } from './Icons.jsx';
 
 const SPECIAL_MODELS = [
   {
-    name: 'Curvas & Entrelaçadas',
+    name: 'Curvas e Entrelaçadas',
     description: 'Em moeda antiga ou prata 925, com fios torcidos em curvas suaves, com ou sem pedras.',
     price: 'R$ 300,00',
     image: 'curvado-entrelacado',
