@@ -62,7 +62,7 @@ export default function CatalogExtras() {
     <section className="catalog-extra" id="linhas-especiais">
       <div className="wrap">
         <div className="sec-head">
-          <p className="eyebrow">Novidades do catálogo</p>
+          <p className="eyebrow">Linha Luxo</p>
           <h2>Detalhes para uma aliança única</h2>
           <p className="lead">Conheça a Linha Luxo, os modelos especiais e as opções para personalizar o seu par.</p>
         </div>

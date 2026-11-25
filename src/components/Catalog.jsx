@@ -39,7 +39,7 @@ export default function Catalog() {
               <div className="label" style={{ marginBottom: '.8rem' }}>Acabamentos disponíveis</div>
               <div className="grid">{MODELS.map((m) => <ModelCard key={m.id} model={m} />)}</div>
             </div>
-            <p className="guarantee">Garantia eterna para moeda antiga<i>✦</i>Caixinha de veludo inclusa<i>✦</i>Kit de limpeza na compra</p>
+            <p className="guarantee">Garantia eterna da cor<i>✦</i>Caixinha de veludo inclusa<i>✦</i>Kit de limpeza na compra</p>
           </div>
         </div>
       </div>
