@@ -310,3 +310,39 @@ footer b{font-weight:500;color:var(--gold-ink)}
 .fab-up.show:hover{transform:translateY(-3px) scale(1.06)}
 .avail{margin:.45rem 0 0;font-size:.74rem;line-height:1.35;letter-spacing:.02em;color:var(--muted)}
 .avail b{display:block;font-weight:500;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-ink)}
+
+/* TAMANHO DA ALIANÇA */
+.size{background:var(--bg)}
+@media (min-width:961px) and (max-width:1180px){
+  .nav a{padding:.6rem .55rem;letter-spacing:.08em;font-size:.76rem}
+  .nav a::after{left:.55rem;right:.55rem}
+}
+
+/* COMPARADOR COM MOEDA */
+.cmp{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);grid-template-areas:"intro stage" "controls stage";grid-template-rows:auto 1fr;gap:clamp(1rem,3vw,2rem);align-items:start;margin-top:14px;padding:clamp(1.1rem,3vw,1.8rem);border:1px solid var(--line);border-radius:22px;background:var(--card);box-shadow:0 12px 30px -24px rgba(60,40,10,.5)}
+.cmp-intro{grid-area:intro}
+.cmp-controls{grid-area:controls}
+.cmp-intro,.cmp-controls{display:grid;gap:.9rem;justify-items:start;align-content:start;min-width:0}
+.cmp-intro .eyebrow{margin:0 0 -.4rem}
+.cmp-intro h3{margin:0;font-family:var(--font-serif);font-size:clamp(1.25rem,3.2vw,1.6rem);font-weight:600;line-height:1.2}
+.cmp-warn{margin:0;color:var(--muted);font-size:.92rem}
+.cmp-slider{display:grid;gap:.5rem;width:100%;font-size:.93rem;line-height:1.45}
+.cmp-slider b{color:var(--gold-ink);font-weight:600}
+.cmp-slider input{width:100%;height:32px;margin:0;accent-color:var(--gold);cursor:pointer}
+.cmp-aro{display:grid;justify-items:start;gap:.1rem;width:100%;padding:.9rem 1.1rem;border:1px solid var(--gold);border-radius:18px;background:linear-gradient(170deg,#fffdf8,#f6ecd2)}
+.cmp-aro span{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-ink)}
+.cmp-aro strong{font-family:var(--font-serif);font-size:clamp(2.6rem,9vw,3.6rem);line-height:1;color:var(--gold-ink)}
+.cmp-aro small{font-size:.85rem;color:var(--muted)}
+.cmp-aro i{font-style:normal;margin-inline:.3em}
+.cmp-small{margin:0;font-size:.78rem;color:var(--muted);line-height:1.45}
+.cmp-stage{grid-area:stage;align-self:center;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1.4rem 1.6rem;min-height:300px;padding:1.2rem;border-radius:18px;background:
+  linear-gradient(rgba(183,138,46,.08) 1px,transparent 1px) 0 0/24px 24px,
+  linear-gradient(90deg,rgba(183,138,46,.08) 1px,transparent 1px) 0 0/24px 24px,var(--bg);border:1px solid var(--line);overflow:hidden}
+.cmp-item{display:grid;justify-items:center;gap:.6rem;margin:0;max-width:100%}
+.cmp-item figcaption{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:center}
+.cmp-coin{display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle at 50% 50%,#e9ebef 0 58%,transparent 59%),conic-gradient(from 30deg,#a97a22,#f0dc9c,#b98a2e,#f0dc9c,#a97a22);box-shadow:0 6px 14px -6px rgba(60,40,10,.5),inset 0 0 0 1px rgba(0,0,0,.12);color:#6b6970;font-family:var(--font-serif);font-weight:700;font-size:clamp(1.4rem,5vw,2.2rem);max-width:100%}
+.cmp-ring{display:grid;place-items:center;border-radius:50%;border:2px dashed var(--gold-ink);background:rgba(183,138,46,.08);color:var(--gold-ink);font-size:.8rem;font-weight:500;letter-spacing:.04em;max-width:100%}
+@media (max-width:900px){
+  .cmp{grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "stage" "controls";grid-template-rows:auto}
+  .cmp-stage{min-height:0;align-self:stretch}
+}

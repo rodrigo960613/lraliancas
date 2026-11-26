@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import { whatsLink } from '../data.js';
+import { WhatsIcon } from './Icons.jsx';
+import { aroFromCirc, fmt } from '../sizeUtils.js';
 
 const COIN_MM = 27; // diâmetro da moeda de R$ 1,00
 const KEY = 'lr-coin-px';
-const fmt = (n) => n.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
 /* O tamanho da moeda na tela varia de aparelho para aparelho: a pessoa calibra uma vez
    e guardamos o valor só neste navegador. */
@@ -14,7 +16,7 @@ function initialCoinPx() {
   return window.innerWidth < 700 ? 165 : 102;
 }
 
-export default function RingComparator({ onUse }) {
+export default function RingComparator() {
   const [coinPx, setCoinPx] = useState(initialCoinPx);
   const [ringMm, setRingMm] = useState(18);
 
@@ -25,11 +27,14 @@ export default function RingComparator({ onUse }) {
   const pxPerMm = coinPx / COIN_MM;
   const ringPx = ringMm * pxPerMm;
   const circ = ringMm * Math.PI;
+  const aro = aroFromCirc(circ);
+
+  const message = `Olá! Medi no site o tamanho da minha aliança: aro ${aro} (aproximado), diâmetro interno de ${fmt(ringMm)} mm e circunferência de ${fmt(circ)} mm. Pode me ajudar a escolher?`;
 
   return (
     <div className="cmp">
       <div className="cmp-intro">
-        <p className="eyebrow">Compare na tela</p>
+        <p className="eyebrow">Tamanho da aliança</p>
         <h3>Meça com uma moeda de R$ 1,00</h3>
         <p className="cmp-warn">Tem uma aliança ou anel antigo que serve? Então é só comparar. Apoie os objetos sobre a tela com cuidado para não riscar.</p>
       </div>
@@ -54,14 +59,16 @@ export default function RingComparator({ onUse }) {
 
         <label className="cmp-slider">
           <span><b>2.</b> Apoie a aliança antiga no círculo tracejado e arraste até ele encostar na borda de dentro.</span>
-          <input type="range" min="12" max="29" step="0.1" value={ringMm}
+          <input type="range" min="14" max="26" step="0.1" value={ringMm}
                  onChange={(e) => setRingMm(Number(e.target.value))} aria-label="Diâmetro interno da aliança em milímetros" />
         </label>
 
-        <p className="cmp-read" aria-live="polite">
-          Diâmetro interno <b>{fmt(ringMm)} mm</b> <i>·</i> circunferência <b>{fmt(circ)} mm</b>
-        </p>
-        <button type="button" className="btn btn-ghost" onClick={() => onUse(ringMm)}>Usar essa medida</button>
+        <div className="cmp-aro" aria-live="polite">
+          <span>Seu aro aproximado</span>
+          <strong>{aro}</strong>
+          <small>diâmetro {fmt(ringMm)} mm <i>·</i> circunferência {fmt(circ)} mm</small>
+        </div>
+        <a className="btn btn-gold" href={whatsLink(message)} target="_blank" rel="noopener noreferrer"><WhatsIcon />Enviar minha medida</a>
         <p className="cmp-small">Deixe o zoom do navegador em 100%. Se mudar o zoom, calibre de novo. É uma medida aproximada, e a gente confirma com você pelo WhatsApp.</p>
       </div>
     </div>
