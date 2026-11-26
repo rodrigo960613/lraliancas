@@ -27,7 +27,7 @@ function useZoomFactor(baseDpr) {
 function initialCoinPx(baseDpr) {
   try {
     const saved = Number(localStorage.getItem(KEY)) / baseDpr;
-    if (saved >= 70 && saved <= 240) return saved;
+    if (saved >= 70 && saved <= 200) return saved;
   } catch { /* navegador sem storage: segue com o padrão */ }
   return window.innerWidth < 700 ? 165 : 102;
 }
@@ -71,7 +71,7 @@ export default function RingComparator() {
       <div className="cmp-controls">
         <label className="cmp-slider">
           <span><b>1.</b> Calibre a tela. Apoie a moeda sobre o disco dourado e arraste até ela cobrir o disco por inteiro.</span>
-          <input type="range" min="70" max="240" step="0.5" value={coinPx}
+          <input type="range" min="70" max="200" step="0.5" value={coinPx}
                  onChange={(e) => setCoinPx(Number(e.target.value))} aria-label="Tamanho do disco da moeda" />
         </label>
 
