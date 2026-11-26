@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { whatsLink } from '../data.js';
 import { WhatsIcon } from './Icons.jsx';
 import { aroFromCirc, fmt } from '../sizeUtils.js';
@@ -6,26 +6,44 @@ import { aroFromCirc, fmt } from '../sizeUtils.js';
 const COIN_MM = 27; // diâmetro da moeda de R$ 1,00
 const KEY = 'lr-coin-px';
 
-/* O tamanho da moeda na tela varia de aparelho para aparelho: a pessoa calibra uma vez
-   e guardamos o valor só neste navegador. */
-function initialCoinPx() {
+/* Zoom do navegador (Ctrl +/−) muda devicePixelRatio; zoom de pinça no celular muda visualViewport.scale.
+   O fator abaixo desfaz os dois, e a moeda e a aliança mantêm o tamanho real na tela. */
+function useZoomFactor(baseDpr) {
+  const read = () => (baseDpr / (window.devicePixelRatio || 1)) / (window.visualViewport?.scale || 1);
+  const [k, setK] = useState(read);
+  useEffect(() => {
+    const update = () => setK(read());
+    window.addEventListener('resize', update);
+    window.visualViewport?.addEventListener('resize', update);
+    return () => {
+      window.removeEventListener('resize', update);
+      window.visualViewport?.removeEventListener('resize', update);
+    };
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  return k;
+}
+
+/* A calibração é guardada em pixels do aparelho (independe do zoom) só neste navegador. */
+function initialCoinPx(baseDpr) {
   try {
-    const saved = Number(localStorage.getItem(KEY));
+    const saved = Number(localStorage.getItem(KEY)) / baseDpr;
     if (saved >= 70 && saved <= 240) return saved;
   } catch { /* navegador sem storage: segue com o padrão */ }
   return window.innerWidth < 700 ? 165 : 102;
 }
 
 export default function RingComparator() {
-  const [coinPx, setCoinPx] = useState(initialCoinPx);
+  const baseDpr = useRef(window.devicePixelRatio || 1).current;
+  const [coinPx, setCoinPx] = useState(() => initialCoinPx(baseDpr)); // valor do controle
   const [ringMm, setRingMm] = useState(18);
+  const k = useZoomFactor(baseDpr);
 
   useEffect(() => {
-    try { localStorage.setItem(KEY, String(coinPx)); } catch { /* ignora */ }
-  }, [coinPx]);
+    try { localStorage.setItem(KEY, String(coinPx * baseDpr)); } catch { /* ignora */ }
+  }, [coinPx, baseDpr]);
 
-  const pxPerMm = coinPx / COIN_MM;
-  const ringPx = ringMm * pxPerMm;
+  const coinShown = coinPx * k;                 // tamanho desenhado, já corrigido pelo zoom
+  const ringShown = ringMm * (coinShown / COIN_MM);
   const circ = ringMm * Math.PI;
   const aro = aroFromCirc(circ);
 
@@ -41,11 +59,11 @@ export default function RingComparator() {
 
       <div className="cmp-stage" aria-hidden="true">
         <figure className="cmp-item">
-          <div className="cmp-coin" style={{ width: coinPx, height: coinPx }}><span>1</span></div>
+          <div className="cmp-coin" style={{ width: coinShown, height: coinShown }}><span>1</span></div>
           <figcaption>Moeda de R$ 1,00 ({COIN_MM} mm)</figcaption>
         </figure>
         <figure className="cmp-item">
-          <div className="cmp-ring" style={{ width: ringPx, height: ringPx }}><span>{fmt(ringMm)} mm</span></div>
+          <div className="cmp-ring" style={{ width: ringShown, height: ringShown }}><span>{fmt(ringMm)} mm</span></div>
           <figcaption>Aliança antiga</figcaption>
         </figure>
       </div>
@@ -69,7 +87,7 @@ export default function RingComparator() {
           <small>diâmetro {fmt(ringMm)} mm <i>·</i> circunferência {fmt(circ)} mm</small>
         </div>
         <a className="btn btn-gold" href={whatsLink(message)} target="_blank" rel="noopener noreferrer"><WhatsIcon />Enviar minha medida</a>
-        <p className="cmp-small">Deixe o zoom do navegador em 100%. Se mudar o zoom, calibre de novo. É uma medida aproximada, e a gente confirma com você pelo WhatsApp.</p>
+        <p className="cmp-small">Pode usar o zoom do navegador ou do celular: o tamanho se ajusta sozinho. É uma medida aproximada, e a gente confirma com você pelo WhatsApp.</p>
       </div>
     </div>
   );
