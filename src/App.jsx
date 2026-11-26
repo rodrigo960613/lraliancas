@@ -4,6 +4,7 @@ import Hero from './components/Hero.jsx';
 import VideoSection from './components/VideoSection.jsx';
 import Catalog from './components/Catalog.jsx';
 import CatalogExtras from './components/CatalogExtras.jsx';
+import SizeGuide from './components/SizeGuide.jsx';
 import MoreSection from './components/MoreSection.jsx';
 import Location from './components/Location.jsx';
 import FloatingButtons from './components/FloatingButtons.jsx';
@@ -18,6 +19,7 @@ export default function App() {
         <VideoSection />
         <Catalog />
         <CatalogExtras />
+        <SizeGuide />
         <MoreSection />
         <Location />
       </main>

@@ -6,6 +6,7 @@ export const NAV = [
   { href: '#topo', label: 'Início' },
   { href: '#apresentacao', label: 'Apresentação' },
   { href: '#modelos', label: 'Modelos' },
+  { href: '#tamanho', label: 'Tamanho' },
   { href: '#fale-conosco', label: 'Fale conosco' },
   { href: '#localizacao', label: 'Localização' },
 ];
