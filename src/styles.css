@@ -332,10 +332,10 @@ footer b{font-weight:500;color:var(--gold-ink)}
 .cmp-aro{display:grid;justify-items:start;gap:.1rem;width:100%;padding:.9rem 1.1rem;border:1px solid var(--gold);border-radius:18px;background:linear-gradient(170deg,#fffdf8,#f6ecd2)}
 .cmp-aro span{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-ink)}
 .cmp-aro strong{font-family:var(--font-serif);font-size:clamp(2.6rem,9vw,3.6rem);line-height:1;color:var(--gold-ink)}
-.cmp-aro small{font-size:.85rem;color:var(--muted)}
-.cmp-aro i{font-style:normal;margin-inline:.3em}
+.cmp-aro small{display:grid;font-size:.85rem;color:var(--muted)}
+.cmp-aro small em{font-style:normal;white-space:nowrap}
 .cmp-small{margin:0;font-size:.78rem;color:var(--muted);line-height:1.45}
-.cmp-stage{grid-area:stage;align-self:center;display:flex;flex-wrap:wrap;align-items:center;align-content:center;justify-content:center;gap:1rem 1.4rem;height:360px;padding:1rem;border-radius:18px;background:
+.cmp-stage{contain:layout paint;grid-area:stage;align-self:center;display:flex;flex-wrap:wrap;align-items:center;align-content:center;justify-content:center;gap:1rem 1.4rem;height:360px;padding:1rem;border-radius:18px;background:
   linear-gradient(rgba(183,138,46,.08) 1px,transparent 1px) 0 0/24px 24px,
   linear-gradient(90deg,rgba(183,138,46,.08) 1px,transparent 1px) 0 0/24px 24px,var(--bg);border:1px solid var(--line);overflow:hidden}
 .cmp-item{display:grid;justify-items:center;gap:.6rem;margin:0;max-width:100%}

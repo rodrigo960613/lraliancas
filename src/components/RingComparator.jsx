@@ -84,7 +84,7 @@ export default function RingComparator() {
         <div className="cmp-aro" aria-live="polite">
           <span>Seu aro aproximado</span>
           <strong>{aro}</strong>
-          <small>diâmetro {fmt(ringMm)} mm <i>·</i> circunferência {fmt(circ)} mm</small>
+          <small><em>diâmetro {fmt(ringMm)} mm</em><em>circunferência {fmt(circ)} mm</em></small>
         </div>
         <a className="btn btn-gold" href={whatsLink(message)} target="_blank" rel="noopener noreferrer"><WhatsIcon />Enviar minha medida</a>
         <p className="cmp-small">Pode usar o zoom do navegador ou do celular: o tamanho se ajusta sozinho. É uma medida aproximada, e a gente confirma com você pelo WhatsApp.</p>

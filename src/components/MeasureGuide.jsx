@@ -27,19 +27,43 @@ const FigPrepare = () => (
   </svg>
 );
 
-/* 2. Enrolar na base do dedo */
+/* 2. Enrolar na base do dedo (só o trecho abaixo da junta) */
 const FigWrap = () => (
-  <svg viewBox="0 0 240 150" role="img" aria-label="Dedo com a tira enrolada na base, abaixo da junta">
-    <path d="M90 150V42a30 30 0 0 1 60 0V150" fill={FINGER} stroke={FINGER_LINE} strokeWidth="2" />
-    <path d="M96 60Q120 66 144 60" stroke={FINGER_LINE} strokeWidth="1.5" fill="none" />
-    <path d="M97 66Q120 72 143 66" stroke={FINGER_LINE} strokeWidth="1.2" fill="none" />
-    <path d="M90 108Q120 94 150 108" stroke={GOLD} strokeWidth="6" fill="none" strokeDasharray="2 5" opacity=".55" />
-    <path d="M90 108Q120 124 150 108" stroke={GOLD} strokeWidth="6" fill="none" strokeLinecap="round" />
-    <path d="M138 116L172 100" stroke={GOLD} strokeWidth="6" strokeLinecap="round" />
-    <Label x="40" y="66" anchor="middle" size={10}>junta</Label>
-    <path d="M62 62H88" stroke={MUTED} strokeWidth="1" strokeDasharray="2 3" />
-    <Label x="198" y="128" anchor="middle" size={10}>base do dedo</Label>
-    <path d="M176 120L158 114" stroke={MUTED} strokeWidth="1" />
+  <svg viewBox="0 0 240 150" role="img" aria-label="Trecho do dedo abaixo da junta, com a tira enrolada na base">
+    <defs>
+      <linearGradient id="mgFinger" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stopColor="#ecd9bf" />
+        <stop offset=".35" stopColor="#f8eee1" />
+        <stop offset=".7" stopColor="#f3e5d2" />
+        <stop offset="1" stopColor="#e6d0b3" />
+      </linearGradient>
+      <linearGradient id="mgBand" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stopColor="#9a6c1f" />
+        <stop offset=".4" stopColor="#ecd38d" />
+        <stop offset="1" stopColor="#b78a2e" />
+      </linearGradient>
+    </defs>
+
+    {/* trecho do dedo: sobe e desce além da imagem, só as laterais têm contorno */}
+    <path d="M84 150C84 110 85 70 86 0H154C155 70 156 110 156 150Z" fill="url(#mgFinger)" />
+    <path d="M86 0C85 70 84 110 84 150M154 0C155 70 156 110 156 150" stroke="#c9a97f" strokeWidth="2" fill="none" />
+
+    {/* dobras da junta */}
+    <path d="M90 26Q120 33 150 26M92 33Q120 39 148 33M95 40Q120 45 145 40" stroke="#b8956a" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+
+    {/* tira enrolada: parte de trás pontilhada, parte da frente com volume */}
+    <path d="M85 104Q120 90 155 104" stroke="#b78a2e" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="1 5" fill="none" opacity=".6" />
+    <path d="M85 100Q120 116 155 100L155 111Q120 127 85 111Z" fill="url(#mgBand)" stroke="#8a5d17" strokeWidth="1" strokeLinejoin="round" />
+    <path d="M91 105Q120 119 149 105" stroke="#fff" strokeWidth="1.2" fill="none" opacity=".45" strokeLinecap="round" />
+
+    {/* ponta de fora da tira */}
+    <path d="M152 105L184 94L187 103L155 115Z" fill="url(#mgBand)" stroke="#8a5d17" strokeWidth="1" strokeLinejoin="round" />
+
+    {/* indicações */}
+    <path d="M60 34H88" stroke="#6b6970" strokeWidth="1" strokeDasharray="2 3" />
+    <Label x="32" y="38" size={11}>junta</Label>
+    <path d="M186 122L164 112" stroke="#6b6970" strokeWidth="1" />
+    <Label x="194" y="136" size={11}>base do dedo</Label>
   </svg>
 );
 
